@@ -16,6 +16,6 @@ source <(helm completion bash)
 ### k3d
 
 ```
-k3d cluster create --config k3d.yaml
+k3d cluster create --config k3d-one.yaml
 export KUBECONFIG=$(k3d kubeconfig merge one)
 ```
