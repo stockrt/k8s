@@ -17,9 +17,7 @@ source <(helm completion bash)
 ### minikube
 
 ```
-minikube start
-minikube addons enable ingress
-minikube tunnel # after k apply -f nginx-hello.yaml
+minikube start -p one --addons=ingress --wait=all
 ```
 
 ### k3d (nope)
@@ -44,9 +42,9 @@ k apply -f nginx-hello.yaml
 
 echo "127.0.0.1 example.com.br" | sudo tee -a /etc/hosts
 
+minikube tunnel
+
 open http://example.com.br
 user: user
 pass: pass
 ```
-
-Validate it here: http://example.com.br
