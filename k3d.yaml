@@ -1,8 +1,9 @@
-apiVersion: k3d.io/v1alpha3
+apiVersion: k3d.io/v1alpha4
 kind: Simple
-name: one
-servers: 3
-agents: 3
+metadata:
+  name: one
+servers: 1
+agents: 1
 image: rancher/k3s:v1.23.6-k3s1
 ports:
   - port: 8080:80
@@ -14,12 +15,8 @@ ports:
 options:
   k3d:
     wait: true
-    timeout: "60s"
   k3s:
     extraArgs:
-      - arg: --tls-san=my.host.domain
+      - arg: --no-deploy=traefik
         nodeFilters:
-          - server:*
-      - arg: --no-deploy=traefik@
-        nodeFilters:
-          - server:*
+          - loadbalancer
