@@ -49,4 +49,4 @@ user: user
 pass: pass
 ```
 
-http://example.com.br
+Validate it here: http://example.com.br
