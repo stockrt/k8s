@@ -9,11 +9,20 @@ Kubernetes tips and tricks
 source <(kubectl completion bash)
 alias k='kubectl'
 complete -F __start_kubectl k
+source <(minikube completion bash)
 source <(k3d completion bash)
 source <(helm completion bash)
 ```
 
-### k3d
+### minikube
+
+```
+minikube start
+minikube addons enable ingress
+minikube tunnel
+```
+
+### k3d (nope)
 
 ```
 k3d cluster create one -s 3 -p "8080:80@loadbalancer" -p "8443:443@loadbalancer" --k3s-arg "--no-deploy=traefik@"
@@ -36,4 +45,8 @@ k apply -f nginx-hello.yaml
 echo "127.0.0.1 example.com.br" | sudo tee -a /etc/hosts
 
 open http://example.com.br
+user: user
+pass: pass
 ```
+
+http://example.com.br
