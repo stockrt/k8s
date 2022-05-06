@@ -16,6 +16,7 @@ options:
     wait: true
   k3s:
     extraArgs:
+      # doesn't seem to work, Traefik still gets installed
       - arg: --no-deploy=traefik
         nodeFilters:
           - loadbalancer
