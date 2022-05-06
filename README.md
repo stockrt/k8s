@@ -19,7 +19,7 @@ source <(helm completion bash)
 ```
 minikube start
 minikube addons enable ingress
-minikube tunnel
+minikube tunnel # after k apply -f nginx-hello.yaml
 ```
 
 ### k3d (nope)
